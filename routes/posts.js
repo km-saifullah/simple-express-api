@@ -21,6 +21,7 @@ let posts = [
   },
 ];
 
+
 // get all posts
 router.get("/", (req, res) => {
   //   console.log(req.query);
@@ -39,7 +40,7 @@ router.get("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const post = posts.find((post) => post.id === id);
   if (!post) {
-    res.status(404).json({ msg: `A post with the if of ${id} was not found` });
+    res.status(404).json({ msg: `A post with the id of ${id} was not found` });
   } else {
     res.status(200).json(post);
   }
@@ -67,7 +68,7 @@ router.put("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const post = posts.find((post) => post.id === id);
   if (!post) {
-    res.status(404).json({ msg: `A post with the if of ${id} was not found` });
+    res.status(404).json({ msg: `A post with the id of ${id} was not found` });
   } else {
     post.title = req.body.title;
     res.status(200).json(posts);
@@ -79,7 +80,7 @@ router.delete("/:id", (req, res) => {
   const id = parseInt(req.params.id);
   const post = posts.find((post) => post.id === id);
   if (!post) {
-    res.status(404).json({ msg: `A post with the if of ${id} was not found` });
+    res.status(404).json({ msg: `A post with the id of ${id} was not found` });
   } else {
     posts = posts.filter((post) => post.id !== id);
     res.status(200).json(posts);
